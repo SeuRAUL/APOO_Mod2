@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+
+    if current_user.role != 'professor'
+      redirect_to(user_path(current_user)) and return
+    end
+
+    @user = User.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,8 +20,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    
     @user = User.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }

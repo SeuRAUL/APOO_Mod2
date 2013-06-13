@@ -6,7 +6,7 @@ class ProvasController < ApplicationController
 	end
 
 	def destroy
-		@user = User.find(params[:post_id])
+		@user = User.find(params[:user_id])
 		@prova = @user.provas.find(params[:id])
 		@prova.destroy
 		redirect_to user_path(@user)
