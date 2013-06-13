@@ -1,0 +1,13 @@
+<p>
+  <b>Matéria:</b>
+  <%= prova.materia %>
+</p>
+
+<p>
+  <b>Justificativa de re-correção:</b>
+  <%= prova.descricao %>
+</p>
+
+<p>
+	<%= link_to "Desfazer solicitação", [prova.user, prova], :confirm => "Tem certeza?", :method => :delete %>
+</p>
