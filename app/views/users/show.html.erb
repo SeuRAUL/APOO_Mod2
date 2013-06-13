@@ -16,12 +16,12 @@
 </p>
 
 <h2>Provas</h2>
-<%= render @post.provas %>
+	<%= render @user.provas %>
 
 <h2>Solicitar correção de prova:</h2>
 <%= render "provas/form" %>
 
 <br />
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user) %>
 <%= link_to 'Back', users_path %>
